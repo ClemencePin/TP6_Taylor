@@ -8,8 +8,8 @@ X = np.linspace(0,2*numpy.pi,100)
 sin_der = np.vectorize(grad(numpy.sin))
 X_der = sin_der(X)
 
-#print(X_der)
-#print(np.cos(X)) #c'est bon les deux sont égaux
+print(X_der)
+print(np.cos(X)) #c'est bon les deux sont égaux
 
 #3.1
 
@@ -26,9 +26,9 @@ def taylor1(X, derivatives):
 sinus10 = [0, 1, 0, -1, 0, 1, 0, -1, 0, 1]
 X = np.linspace(-2 * np.pi, 2 * np.pi, 400)
 
-#plt.plot(X, taylor1(X, sinus10))
-#plt.plot(X, np.sin(X))
-#plt.show()
+plt.plot(X, taylor1(X, sinus10))
+plt.plot(X, np.sin(X))
+plt.show()
 
 #3.2
 
@@ -45,9 +45,9 @@ assert np.allclose(taylor2(X, np.exp, 2), 1 + X + X**2 / 2)
 Y = np.sin(X)
 Y2 = taylor2(X, np.sin, 10)
 
-#plt.plot(X,Y)
-#plt.plot(X,Y2)
-#plt.show()
+plt.plot(X,Y)
+plt.plot(X,Y2)
+plt.show()
 
 def verif(Y1,Y2):
     a = 0
@@ -55,11 +55,11 @@ def verif(Y1,Y2):
         if numpy.abs(Y1[i]-Y2[i]) < 10**(-3):
             a+=1
     return (a/len(X))*100
-#print(verif(Y,Y2)) #résultat : 42 %
+print(verif(Y,Y2)) #résultat : 42 %
 
-#plt.plot(X,np.cos(X))
-#plt.plot(X,taylor2(X, np.cos,0))
-#plt.show() #je constate que l'approx au degré 0 est une droite : logique
+plt.plot(X,np.cos(X))
+plt.plot(X,taylor2(X, np.cos,0))
+plt.show() #je constate que l'approx au degré 0 est une droite : logique
 
 #3.3
 
